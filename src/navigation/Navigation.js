@@ -1,17 +1,18 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../screens/Home";
-import About from "../screens/About";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Contact from "../screens/Contact";
+import HomeStack from "./HomeStack";
+import ContactStack from "./ContactStack";
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
 
 export default function Navigation(){
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="home" component={Home} options={{title: "Home"}} />
-            <Stack.Screen name="about" component={About} options={{title: "About"}} />
-            <Stack.Screen name="contact" component={Contact} options={{title: "Contact"}} />
-        </Stack.Navigator>
+
+    return(
+        <Tab.Navigator>
+            <Tab.Screen name="home" component={HomeStack} options={{title: "Home"}} />
+            <Tab.Screen name="contact" component={ContactStack} options={{title: "Contact"}} />
+        </Tab.Navigator>
     )
 }
